@@ -1,0 +1,29 @@
+<div class="list-container">
+  <div class="header-list">
+    <h1 class="title-list">Lista de usuários</h1>
+  </div>
+
+  <div class="table-users">
+    <div class="table-header-row">
+      <div class="line-name">Nome</div>
+      <div class="line-email">E-mail</div>
+      <div class="line-birthday">Data nascimento</div>
+      <div class="line-channel">Canal</div>
+      <div class="line-button"></div>
+    </div>
+
+    <div *ngFor="let person of peaple | async">
+      <div class="line-row" (click)="onClick(person)" (keyPress)="onClick(person)">
+        <div class="line-name">{{person.name}}</div>
+        <div class="line-email">{{person.email}}</div>
+        <div class="line-birthday">{{person.birthday}}</div>
+        <div class="line-channel">{{person.channel}}</div>
+        <div class="line-button">
+          <button class="button-excluir" (click)="remove($event, person.key)">
+            Remover
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
